@@ -22,9 +22,6 @@ def test_data():
     return df_orders, df_lines
 
 
-result = report(*test_data())
-
-
 class TestUM(unittest.TestCase):
 
     def test_producsts(self):
@@ -33,6 +30,7 @@ class TestUM(unittest.TestCase):
             [99, 98, 97, 96, 95, 94, 93, 92, 91, 90]))
 
     def test_revenue(self):
+        result = report(*test_data())
         self.assertEqual((result['total_revenue'] == result.index).mean(), 1)
 
 
